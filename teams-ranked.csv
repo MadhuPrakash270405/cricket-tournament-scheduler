@@ -1,0 +1,22 @@
+name,rating,preference,required,icon,not_before,earliest_slot,consecutive_matches,finish_pool,avoid_pool_teams,ground_name,request_notes,review_status,club,same_pool_teams
+ECC Kurallu,21,none,true,,,,,,ICL OGs,,Keep highest- and lowest-ranked teams in separate pools; Keep LCC and ECC Kurallu in the same pool,Highest/lowest seed separation enforced by updated local scheduler,,LCC
+SW Eagles,20,none,true,,,,,,,,,,,
+Reserve strikers,19,none,true,,,,,,,,,,,
+Kent black squirrels,18,consecutive,true,,,,3,true,Kent (students),,Last three games back to back,Special constraints recorded; current scheduler does not enforce them,Kent,
+Erie marvel,17,after10,true,,10:00,,,,Erie thunders,,Erie Marvels games after 10 AM,Time/preference supported,Erie,
+CSK,16,after10,true,,10:00,,,,CSK rebels,,Games after 10,Time/preference supported,CSK,
+ASG,15,after9,true,,09:00,,,,,,Games after 9 AM,Time/preference supported,,
+Gujarat,14,early,true,,,,,,,,,,,
+MCC,13,none,true,,,2,,,,,From second game,Special constraints recorded; current scheduler does not enforce them,,
+Drug runner,12,after10,true,,10:00,,,,,,Late games; Pittsburgh team,Time/preference supported,,
+Beast,11,none,true,,,,,,,,,,,
+Afghan royals,10,none,true,,,,,,,,,,,
+Erie thunders,9,none,true,,,,,,Erie marvel,,Separate request: Erie team late (after 10 AM); team identity unconfirmed,Confirm whether Erie team means Erie thunders; no time restriction assigned,Erie,
+Kent (students),8,after10,true,,10:00,,,,Kent black squirrels,,Games at 10 AM or later,Time/preference supported,Kent,
+LCC,7,early,true,,,,,,,Lodi,Morning games at Lodi; Keep LCC and ECC Kurallu in the same pool,Pending Lodi ground assignment and morning cutoff; ground request not enforced,,ECC Kurallu
+CSK rebels,6,after9,true,,09:00,,,,CSK,,Games after 9 AM,Time/preference supported,CSK,
+ICL,5,none,true,,,2,,,ICL OGs,,Games from second round,Special constraints recorded; current scheduler does not enforce them,ICL,
+Cardinals,4,after9,true,,09:00,2,,,ASG,,"From second round, after 9 AM; avoid ASG in same group",Special constraints recorded; current scheduler does not enforce them,,
+Strongsville CC,3,after10,true,,10:00,,,,,,Games after 10 AM (Old Inka = Strongsville CC),Time/preference supported,,
+Royal infield,2,none,true,,,,,,MCC,,Do not put MCC in the same group,Special constraints recorded; current scheduler does not enforce them,,
+ICL OGs,1,none,true,,,,,,ECC Kurallu; ICL,,Keep highest- and lowest-ranked teams in separate pools,Highest/lowest seed separation enforced by updated local scheduler,ICL,
