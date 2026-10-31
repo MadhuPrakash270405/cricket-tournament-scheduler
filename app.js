@@ -122,10 +122,8 @@ createApp({
         return;
       }
       importMessage.value = "";
-      // Increase the number of pools when needed; never put five teams together.
-      // Up to 32 pools support the existing 128-team limit.
+      // Honor the requested pool count; pool sizes may exceed four.
       const n = Math.max(
-        Math.ceil(teams.value.length / 4),
         1,
         Math.min(
           32,
@@ -143,6 +141,21 @@ createApp({
           pos = i % n;
         out[row % 2 === 0 ? pos : n - 1 - pos].push(t);
       });
+      // If a larger pool is needed, place it outside Group A where feasible.
+      // Move the lowest seed, retaining the highest seed in Group A.
+      while (out[0].length > 4) {
+        const destination = out.reduce(
+          (best, pool, index) =>
+            index > 0 &&
+            pool.length < 5 &&
+            (best === -1 || pool.length < out[best].length)
+              ? index
+              : best,
+          -1,
+        );
+        if (destination === -1) break;
+        out[destination].push(out[0].pop());
+      }
       // Keep the strongest and weakest seeds apart, preserving pool sizes.
       // A single pool cannot satisfy this tournament rule.
       if (n === 1 && sorted.length > 1) {
