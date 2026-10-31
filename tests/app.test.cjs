@@ -157,6 +157,8 @@ test("highest and lowest seeds stay apart for varied roster and pool sizes", () 
 
 test("single-pool setup explains the impossible separation rule", () => {
   const app = loadApp();
+  app.settings.teamCount = 2;
+  app.resizeTeams();
   app.settings.poolCount = 1;
   app.generatePools();
   assert.equal(app.pools.value.length, 0);
@@ -182,4 +184,34 @@ test("poster fixture groups react to generation and pool resets", () => {
   }
   app.generatePools();
   assert.equal(app.fixtureGroups.value.length, 0);
+});
+
+test("21 teams requested in five pools become six pools with no group of five", () => {
+  const app = loadApp();
+  app.settings.teamCount = 21;
+  app.resizeTeams();
+  app.settings.poolCount = 5;
+  app.generatePools();
+  assert.equal(app.settings.poolCount, 6);
+  assert.deepEqual(
+    Array.from(app.pools.value, (pool) => pool.length).sort(),
+    [3, 3, 3, 4, 4, 4],
+  );
+  assert.ok(app.pools.value[0].length <= 4);
+});
+
+test("four-team cap covers large rosters without losing teams", () => {
+  for (const count of [5, 25, 105, 128]) {
+    const app = loadApp();
+    app.settings.teamCount = count;
+    app.resizeTeams();
+    app.settings.poolCount = 2;
+    app.generatePools();
+    assert.ok(app.pools.value.every((pool) => pool.length <= 4));
+    assert.equal(app.pools.value.flat().length, count);
+    assert.equal(
+      new Set(app.pools.value.flat().map((team) => team.id)).size,
+      count,
+    );
+  }
 });
