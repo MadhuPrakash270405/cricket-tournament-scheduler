@@ -121,9 +121,12 @@
                     >Pools<input
                       type="number"
                       min="1"
-                      max="26"
+                      max="32"
                       v-model.number="settings.poolCount"
-                    /><small>Groups for the league stage</small></label
+                    /><small
+                      >Maximum 4 teams per pool; at least
+                      {{Math.max(2,Math.ceil(teams.length/4))}} pools</small
+                    ></label
                   ><label
                     >Grounds<input
                       type="number"
@@ -318,8 +321,9 @@
             </div>
             <template v-else
               ><p class="info-note">
-                Review the groups before scheduling. Regenerating pools clears
-                the current schedule.
+                Each pool has at most 4 teams. The pool count increases
+                automatically when needed. Review the groups before scheduling.
+                Regenerating pools clears the current schedule.
               </p>
               <div class="poster-board" aria-label="Pool draw poster">
                 <header class="poster-header">

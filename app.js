@@ -122,10 +122,13 @@ createApp({
         return;
       }
       importMessage.value = "";
+      // Increase the number of pools when needed; never put five teams together.
+      // Up to 32 pools support the existing 128-team limit.
       const n = Math.max(
+        Math.ceil(teams.value.length / 4),
         1,
         Math.min(
-          26,
+          32,
           teams.value.length,
           Math.floor(Number(settings.poolCount) || 1),
         ),

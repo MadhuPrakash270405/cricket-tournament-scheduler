@@ -75,3 +75,7 @@ The highest-rated and lowest-rated teams must be in different pools. If snake se
 ## Poster views
 
 Generate pools to see a live poster board with cream cards, club/team names, ratings, and colored pool accents. Generate a schedule to see live fixture cards grouped by pool, with start times, ground numbers, match numbers, and pool finish times. The schedule defaults to Poster cards; use the Table switch for the chronological table. Both layouts read the same generated data. These views are HTML/CSS, not image exports.
+
+## Pool size limit
+
+Pools contain at most four teams. If the requested pool count is too small, generation increases it to `ceil(teamCount / 4)`. For 21 teams, five requested pools become six: three groups of four and three groups of three. Up to 32 pools support 128 teams. The highest/lowest seed separation rule still applies.
